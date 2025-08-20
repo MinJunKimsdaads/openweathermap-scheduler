@@ -1,0 +1,28 @@
+{
+  "name": "openweathermapscheduler",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MinJunKimsdaads/openweathermap-scheduler.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MinJunKimsdaads/openweathermap-scheduler/issues"
+  },
+  "homepage": "https://github.com/MinJunKimsdaads/openweathermap-scheduler#readme",
+  "dependencies": {
+    "basic-ftp": "^5.0.5",
+    "dotenv": "^17.2.1",
+    "fs": "^0.0.1-security",
+    "node-cron": "^4.2.1",
+    "node-fetch": "^3.3.2",
+    "path": "^0.12.7"
+  }
+}

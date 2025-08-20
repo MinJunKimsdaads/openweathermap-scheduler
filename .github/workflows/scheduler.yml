@@ -1,0 +1,31 @@
+name: OpenWeatherMap Data Scheduler
+
+on:
+  schedule:
+    - cron: '0 */12 * * *' # 매일 0시, 12시 (UTC 기준) 실행
+  workflow_dispatch:         # 수동 실행 가능
+
+jobs:
+  fetch-and-save:
+    runs-on: ubuntu-latest
+    env:
+      OPENWEATHER_API_KEY: ${{ vars.OPENWEATHER_API_KEY }}
+      SFTP_HOST: ${{ vars.SFTP_HOST }}
+      SFTP_PASSWORD: ${{ vars.SFTP_PASSWORD }}
+      SFTP_PATH: ${{ vars.SFTP_PATH }}
+      SFTP_PORT: ${{ vars.SFTP_PORT }}
+      SFTP_USERNAME: ${{ vars.SFTP_USERNAME }}
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run OpenSky fetch and save script
+        run: node ./index.js
