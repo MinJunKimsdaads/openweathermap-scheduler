@@ -12,7 +12,7 @@ dotenv.config();
 
 export const getData = async () => {
     try{
-        const jsonData = await fs.readFile('./assets/data/data.json');
+        const jsonData = await fs.readFile('./assets/data/airport.json');
         const data = JSON.parse(jsonData);
         return data;
     }catch(e){
@@ -26,7 +26,7 @@ export const getWeatherData = async () => {
         const data = await getData();
         await Promise.all(
             data.map(async (i)=> {
-                const res = await fetch(`${OPENWEATHER_URL}?lat=${i.lat}&lon=${i.lon}&appid=${process.env.OPENWEATHER_API_KEY}`);
+                const res = await fetch(`${OPENWEATHER_URL}?lat=${i[6]}&lon=${7}&appid=${process.env.OPENWEATHER_API_KEY}`);
                 const json = await res.json();
                 if(json.cod !== 429){
                     result.push(json);

@@ -1,9 +1,13 @@
 
-// import fs from 'fs'
 // //대한민국 그리드 중심좌표 가져오기
-// const bbox = [124, 33, 132, 43];
 
 import { saveJsonTempAndUpload } from "./services/services.js";
+
+import fs from 'fs'
+import fs2 from 'fs/promises';
+// //대한민국 그리드 중심좌표 가져오기
+
+// const bbox = [124, 33, 132, 43];
 
 // // 50km 단위 → 위도/경도로 변환
 // const latStep = 0.45;  // 위도
@@ -32,7 +36,19 @@ import { saveJsonTempAndUpload } from "./services/services.js";
 
 // const centers = getGridCenters(bbox, lonStep, latStep);
 
-// fs.writeFileSync('centers.json', JSON.stringify(centers, null, 2), 'utf-8');
+// fs.writeFileSync('test.json', JSON.stringify(centers, null, 2), 'utf-8');
+
+// const test = async () => {
+//   try{
+//         const jsonData = await fs2.readFile('./assets/data/airport.json');
+//         const data = JSON.parse(jsonData);
+//         const mainAirportData = data.filter((i)=>i[1].includes('international') || i[1].includes('International'))
+//         fs.writeFileSync('test2.json', JSON.stringify(mainAirportData, null, 2), 'utf-8');
+//   }catch(e){
+//     console.error(e)
+//   }
+// }
+// test();
 
 
 async function main() {
